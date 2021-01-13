@@ -32,3 +32,6 @@ Route::get('/search', [ProductController::class, 'search']);
 //Add to Cart Page
 Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
 
+// //Cart Items Page
+// Route::get('/cart', [ProductController::class, 'cartItem']);
+

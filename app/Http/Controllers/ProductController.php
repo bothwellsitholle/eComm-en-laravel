@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
+use Illuminate\Support\Facades\Session;
 
 class ProductController extends Controller
 {
@@ -48,8 +49,12 @@ class ProductController extends Controller
      } else 
      {
          return redirect('/login');
-     }
-
-    
+     } 
  }
+  static function cartItem()
+     {
+        $userID = Session::get('user')->id;
+        return $data = Cart::where('user_id', $userID)->count();
+
+     }
 }

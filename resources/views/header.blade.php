@@ -1,3 +1,7 @@
+<?php
+use App\Http\Controllers\ProductController;
+$total = ProductController::cartItem();
+?>
 <nav class="navbar navbar-default custom-nav">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -8,7 +12,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">G7 Tech</a>
+        <a class="navbar-brand" href="/">G7 Tech</a>
       </div>
   
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -26,7 +30,7 @@
           </button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Cart(0)</a></li>
+          <li><a href="#">Cart({{ $total }})</a></li>
             </ul>
           </li>
         </ul>

@@ -36,9 +36,7 @@
     }
     .custom-product{
         height: 600px;
-        margin: 20px;
-        padding-top: 20px;
-        padding-right: 20px;
+      
     }
     .custom-nav{
         margin-bottom: 0px;
