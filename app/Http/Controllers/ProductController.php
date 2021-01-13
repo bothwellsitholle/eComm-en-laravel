@@ -6,6 +6,7 @@ use App\Models\Cart;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -57,4 +58,14 @@ class ProductController extends Controller
         return $data = Cart::where('user_id', $userID)->count();
 
      }
+    function cartlist()
+    {   $userID = Session::get('user')->id;
+        $products = DB::table('cart')
+        ->join('products', 'cart.product_id', '=', 'products.id')
+        ->where('cart.user_id',$userID)
+        ->select('products.*')
+        ->get();
+
+        return view('cartlist', ['products' => $products]);
+    }
 }

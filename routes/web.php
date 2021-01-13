@@ -49,3 +49,6 @@ Route::get('/logout', function(){
         return redirect('/login');
     });
 
+//Cart List Page
+Route::get('/cartlist', [ProductController::class, 'cartlist']);
+

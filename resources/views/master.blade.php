@@ -19,6 +19,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
 {{-- ADDITIONS LINKS --}}
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 
@@ -28,6 +29,10 @@
     {{View::make('header')}}
     @yield('content')
     {{View::make('footer')}}
+    <p>
+
+    </p>
+    <br><br>
 </body>
 <style>
     .custom-login{
@@ -40,7 +45,7 @@
     }
     .custom-product{
         height: 600px;
-      
+        margin-bottom: 50px !important;
     }
     .custom-nav{
         margin-bottom: 0px;
@@ -62,7 +67,6 @@
     .detail-img{
         margin-top: 20px 
         padding-top: 50px;
-       
     }
     .back-button{
         margin-top: 20px; 
@@ -74,9 +78,18 @@
     .searched-item{
         
     }
-    .button-block{
-        margin-bottom: 20px;
+    .cartlist{
+        padding-bottom: 100px !important;
+    
     }
+    .cart-list-devider{
+
+    }
+
+    .margin-bottom{
+        margin-bottom: 50px !important;
+    }
+    
 
 </style>
 </html>

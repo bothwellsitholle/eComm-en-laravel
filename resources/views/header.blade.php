@@ -33,7 +33,7 @@ if(Session::has('user')){
           </button>
         </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Cart({{$total}})</a></li>
+          <li><a href="/cartlist">Cart({{$total}})</a></li>
           @if(Session::has('user'))
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hello, {{ session()->get('user')->name }}
@@ -44,6 +44,7 @@ if(Session::has('user')){
           </li>
           @else
           <li><a href="/login">Login</a></li>
+         <li><a href="/login">Register</a></li>
           @endif
             </ul>
             
