@@ -7,7 +7,9 @@
 
  
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
@@ -23,18 +25,56 @@
     @yield('content')
     {{View::make('footer')}}
 </body>
-<script>
-    // $(document).ready(function(){
-    //     $(".btn").click(function(){
-    //         alert('All set...');
-    //     });
-    // })
-</script>
 <style>
     .custom-login{
         height:500px ;
         padding-top: 100px;
         /* margin:20px; */
     }
+    img.slider-img{
+        height: 400px !important;
+    }
+    .custom-product{
+        height: 600px;
+        margin: 20px;
+        padding-top: 20px;
+        padding-right: 20px;
+    }
+    .custom-nav{
+        margin-bottom: 0px;
+    }
+    .slide-text{
+        background-color: #4f654f3b;
+    }
+    .trending-image{
+        height: 100px ;
+    }
+    .trending-item{
+        float: left;
+        width: 16.6%;
+    }
+    .trending-wrapper{
+        margin: 30px;
+        text-align: center;
+    }
+    .detail-img{
+        margin-top: 20px 
+        padding-top: 50px;
+       
+    }
+    .back-button{
+        margin-top: 20px; 
+    }
+    .search-box{
+        width: 500px !important;
+        margin-left: 80px !important;
+    }
+    .searched-item{
+        
+    }
+    .button-block{
+        margin-bottom: 20px;
+    }
+
 </style>
 </html>

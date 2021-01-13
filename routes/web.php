@@ -24,3 +24,11 @@ Route::post('/login', [UserController::class, 'login']);
 
 Route::get('/', [ProductController::class, 'index']);
 
+Route::get('detail/{id}', [ProductController::class, 'detail']);
+
+//Search Page
+Route::get('/search', [ProductController::class, 'search']);
+
+//Add to Cart Page
+Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
+
