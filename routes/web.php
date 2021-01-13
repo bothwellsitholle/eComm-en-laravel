@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,19 @@ Route::get('/search', [ProductController::class, 'search']);
 //Add to Cart Page
 Route::post('/add_to_cart', [ProductController::class, 'addToCart']);
 
-// //Cart Items Page
-// Route::get('/cart', [ProductController::class, 'cartItem']);
+// //Log Out / The Code you wrote
+// Route::get('/logout', function(){
+// if(Session::has('user')){
+//     Session::pull('user');
+//     return redirect('/login');
+//     } else {
+//     return view('/');
+//     }
+// });
+
+//ALTERNATIVE LOGOUT
+Route::get('/logout', function(){
+        Session::forget('user');
+        return redirect('/login');
+    });
 
