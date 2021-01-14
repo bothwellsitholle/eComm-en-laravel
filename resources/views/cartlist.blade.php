@@ -4,7 +4,11 @@
       
         <div class="container cartlist">
             <div class="">
-                <h3>Cart List</h3>
+               <u> <h3>Cart List</h3> </u>
+                <br>
+                <div class="d-flex justify-content-end text-center"><a class="btn btn-success" href="/ordernow">Order Now</a>
+                </div>
+                
                 <br><br>
         <table class="table table-bordered cartlist" style="clear:both; margin-bottom:100px !important">
             <tr>
@@ -32,7 +36,7 @@
             
                     <td>
                         <div class="col-sm-2 cartlist">
-                            <button class="btn btn-warning">Remove</button>
+                            <a href="/remove-cart-item/{{ $item->cart_id }}" class="btn btn-warning">Remove from Cart</a>
                         </div>
                     </td>
                 </tr>

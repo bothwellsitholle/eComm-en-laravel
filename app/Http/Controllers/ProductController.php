@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
-{
+{ public $products; 
 
 // DISPLAY TRENDING PRODUCTS / HOME PAGE
  function index()
@@ -59,13 +59,37 @@ class ProductController extends Controller
 
      }
     function cartlist()
-    {   $userID = Session::get('user')->id;
+    {   if(Session::has('user')){
+        $userID = Session::get('user')->id;
         $products = DB::table('cart')
         ->join('products', 'cart.product_id', '=', 'products.id')
         ->where('cart.user_id',$userID)
-        ->select('products.*')
+        ->select('products.*','cart.id as cart_id')
         ->get();
 
         return view('cartlist', ['products' => $products]);
+    } else {
+        return view('login');
+    }
+    }
+    function removeItem($id)
+    {
+        Cart::destroy($id);
+        return redirect('/cartlist');
+    }
+    function orderNow()
+    {
+        if(Session::has('user')){
+            $userID = Session::get('user')->id;
+            $total = DB::table('cart')
+            ->join('products', 'cart.product_id', '=', 'products.id')
+            ->where('cart.user_id',$userID)
+            ->sum('products.price');
+
+    
+            return view('ordernow', ['total' => $total]);
+        } else {
+            return view('login');
+        }
     }
 }
