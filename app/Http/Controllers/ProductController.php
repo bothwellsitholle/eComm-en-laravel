@@ -119,4 +119,18 @@ class ProductController extends Controller
         }
         
     }
+    function myOrders()
+    {
+        if(Session::has('user')){
+            $userID = Session::get('user')->id;
+            $orders = DB::table('orders')
+            ->join('products', 'orders.product_id', '=', 'products.id')
+            ->where('orders.user_id',$userID)
+            ->get();
+
+            return view('myorders', ['products' => $orders]);
+        } else {
+            return view('login');
+        }
+    }
 }

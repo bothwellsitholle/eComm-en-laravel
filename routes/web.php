@@ -61,5 +61,8 @@ Route::get('ordernow', [ProductController::class, 'orderNow']);
 //Placing Order Page
 Route::post('placeorder', [ProductController::class, 'placeOrder']);
 
+//My orders  Page
+Route::get('myorders', [ProductController::class, 'myorders']);
+
 
 
