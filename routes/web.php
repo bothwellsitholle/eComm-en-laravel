@@ -58,5 +58,8 @@ Route::get('remove-cart-item/{id}', [ProductController::class, 'removeItem']);
 //Order Now Route
 Route::get('ordernow', [ProductController::class, 'orderNow']);
 
+//Placing Order Page
+Route::post('placeorder', [ProductController::class, 'placeOrder']);
+
 
 

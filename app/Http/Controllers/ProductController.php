@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Cart;
+use App\Models\Order;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
 use Illuminate\Support\Facades\Session;
@@ -86,10 +87,36 @@ class ProductController extends Controller
             ->where('cart.user_id',$userID)
             ->sum('products.price');
 
+            if($total == null){
+                return redirect('/cartlist');
+            }
     
             return view('ordernow', ['total' => $total]);
         } else {
             return view('login');
         }
+    }
+    function placeOrder(Request $req)
+    {   $userID = Session::get('user')->id;
+        $allCart = Cart::where('user_id', $userID)->get();
+
+        foreach($allCart as $cart)
+        {
+            $order = new Order;
+            $order->product_id = $cart->product_id;
+            $order->user_id = $cart->user_id;
+            $order->status = 'pending';
+            $order->payment_method = $req->payment_method;
+            $order->payment_status = 'pending';
+            $order->address = $req->address;
+        
+        }
+        if($order->save()){
+            $allCart = Cart::where('user_id', $userID)->delete();
+            return redirect('/');
+        } else {
+            return "Something went wrong";
+        }
+        
     }
 }

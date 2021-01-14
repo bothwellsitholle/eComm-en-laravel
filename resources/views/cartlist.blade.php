@@ -1,3 +1,6 @@
+<?php
+use App\Http\Controllers\ProductController;
+?>
 @extends('master')
 @section("content")
     <div class="custom-product cartlist">
