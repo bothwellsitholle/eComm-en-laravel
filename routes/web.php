@@ -64,5 +64,8 @@ Route::post('placeorder', [ProductController::class, 'placeOrder']);
 //My orders  Page
 Route::get('myorders', [ProductController::class, 'myorders']);
 
+//Register  Page
+Route::view('/register', 'register');
+Route::post('/register', [UserController::class, 'register']);
 
 
